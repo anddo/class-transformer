@@ -23,8 +23,8 @@ export function Transform(transformFn: (value: any, obj: any, transformationType
  */
 export function Type(typeFunction?: (type?: TypeOptions) => Function) {
     return function(target: any, key: string) {
-        const reflect: any = (Reflect as any).getMetadata || ((global as any).Reflect as any).getMetadata;
-        const type = reflect.getMetadata("design:type", target, key);
+        const getMetadata: any = (Reflect as any).getMetadata || ((global as any).Reflect as any).getMetadata;
+        const type = getMetadata("design:type", target, key);
         const metadata = new TypeMetadata(target.constructor, key, type, typeFunction);
         defaultMetadataStorage.addTypeMetadata(metadata);
     };
