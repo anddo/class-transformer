@@ -1,12 +1,7 @@
 import {ClassTransformOptions} from "./ClassTransformOptions";
 import {defaultMetadataStorage} from "./storage";
 import {TypeOptions} from "./metadata/ExposeExcludeOptions";
-
-export enum TransformationType {
-    PLAIN_TO_CLASS,
-    CLASS_TO_PLAIN,
-    CLASS_TO_CLASS
-}
+import { TransformationType } from "./constants";
 
 export class TransformOperationExecutor {
 

@@ -1,7 +1,7 @@
 import {TypeMetadata} from "./TypeMetadata";
 import {ExposeMetadata} from "./ExposeMetadata";
 import {ExcludeMetadata} from "./ExcludeMetadata";
-import {TransformationType} from "../TransformOperationExecutor";
+import {TransformationType} from "../constants";
 import {TransformMetadata} from "./TransformMetadata";
 
 /**

@@ -1,6 +1,6 @@
 {
   "name": "class-transformer-xyz",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "Proper decorator-based transformation / serialization / deserialization of plain javascript objects to class constructors",
   "license": "MIT",
   "readmeFilename": "README.md",
