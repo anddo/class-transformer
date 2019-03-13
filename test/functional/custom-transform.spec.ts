@@ -4,7 +4,7 @@ import {classToPlain, plainToClass} from "../../src/index";
 import {defaultMetadataStorage} from "../../src/storage";
 import {Expose, Transform, Type} from "../../src/decorators";
 import * as moment from "moment";
-import {TransformationType} from "../../src/TransformOperationExecutor";
+import {TransformationType} from "../../src/constants";
 
 describe("custom transformation decorator", () => {
 
@@ -158,7 +158,7 @@ describe("custom transformation decorator", () => {
         objArg.should.be.equal(user);
         typeArg.should.be.equal(TransformationType.CLASS_TO_PLAIN);
     });
-    
+
     let model: any;
     it ("should serialize json into model instance of class Person", () => {
         expect(() => {
@@ -184,24 +184,24 @@ describe("custom transformation decorator", () => {
             }
             class Address {
                 public street: string;
-                
-                @Expose({ name: "tel" }) 
+
+                @Expose({ name: "tel" })
                 public telephone: string;
-                
+
                 public zip: number;
-                
+
                 public country: string;
             }
             class Person {
                 public name: string;
-                
+
                 @Type(() => Address)
                 public address: Address;
-                
+
                 @Type(() => Hobby)
                 @Transform(value => value.filter((hobby: any) => hobby.type === "sport"), { toClassOnly: true })
                 public hobbies: Hobby[];
-                
+
                 public age: number;
             }
             model = plainToClass(Person, json);
@@ -210,7 +210,7 @@ describe("custom transformation decorator", () => {
             model.hobbies.forEach((hobby: Hobby) => expect(hobby instanceof Hobby && hobby.type === "sport"));
         }).to.not.throw();
     });
-    
+
     it ("should serialize a model into json", () => {
         expect(() => {
             classToPlain(model);

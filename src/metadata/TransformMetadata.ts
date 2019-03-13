@@ -1,5 +1,5 @@
 import {TransformOptions} from "./ExposeExcludeOptions";
-import {TransformationType} from "../TransformOperationExecutor";
+import {TransformationType} from "../constants";
 
 export class TransformMetadata {
 
